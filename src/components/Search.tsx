@@ -47,29 +47,43 @@ const SearchContainer = styled.div`
     font-weight: 500;
     color: #1c1c1c;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: start;
+    p {
+      margin-bottom: 12px;
+    }
+  }
 `;
 
 const SearchInput = styled.input`
   border: 1px solid #dfdfdf;
   height: 48px;
   border-radius: 8px;
-  width: 282px;
-  padding: 0px 10px;
+  min-width: 300px;
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
 
   &::placeholder {
     font-weight: 400;
     color: #9e9e9e;
     font-size: 16px;
+    padding-left: 25px;
   }
 `;
 
 const InputIconContainer = styled.div`
   display: flex;
   position: relative;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   img {
     position: absolute;
     bottom: 13px;
-    right: 8px;
+    right: 25px;
     height: 25px;
   }
 `;

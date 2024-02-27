@@ -21,11 +21,10 @@ const TableHeader = () => {
 export default TableHeader;
 
 const TableHead = styled.tr`
-  background-image: linear-gradient(#5a84c0, #594ed2);
+  background: linear-gradient(#5a84c0, #594ed2);
   color: white;
   font-size: 16px;
   font-weight: 500;
-
   justify-content: space-between;
   height: 49px;
 `;
@@ -33,6 +32,7 @@ const TableHead = styled.tr`
 const HeadContent = styled.th<{ hides?: boolean }>`
   padding: 16px;
   text-align: start;
+
   @media (max-width: 768px) {
     display: ${(props) => (props.hides ? "none" : "")};
   }

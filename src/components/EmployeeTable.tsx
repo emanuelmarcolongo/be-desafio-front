@@ -47,4 +47,5 @@ const TableContainer = styled.table`
   max-width: 961px;
   margin: 0 auto;
   background-color: white;
+  border-radius: 8px 8px 0px 0px;
 `;
