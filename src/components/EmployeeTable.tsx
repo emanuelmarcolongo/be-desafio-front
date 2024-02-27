@@ -12,9 +12,11 @@ const EmployeeTable = ({ employeeData }: EmployeeTableProps) => {
     <Container>
       <TableContainer>
         <TableHeader />
-        {employeeData.map((employee, idx) => (
-          <EmployeeInfo key={employee.name + idx} employee={employee} />
-        ))}
+        <tbody>
+          {employeeData.map((employee, idx) => (
+            <EmployeeInfo key={employee.name + idx} employee={employee} />
+          ))}
+        </tbody>
       </TableContainer>
     </Container>
   );
@@ -27,7 +29,8 @@ const Container = styled.div`
   padding: 0px 32px;
 `;
 
-const TableContainer = styled.div`
+const TableContainer = styled.table`
+  width: 100%;
   max-width: 961px;
   margin: 0 auto;
   background-color: white;

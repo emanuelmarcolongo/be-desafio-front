@@ -2,26 +2,47 @@ import styled from "styled-components";
 
 const TableHeader = () => {
   return (
-    <TableHead>
-      <p>FOTO</p>
-      <p>NOME</p>
-      <p>CARGO</p>
-      <p>DATA DE ADMISSÃO</p>
-      <p>TELEFONE</p>
-    </TableHead>
+    <thead>
+      <TableHead>
+        <HeadContent>FOTO</HeadContent>
+        <HeadContent>NOME</HeadContent>
+
+        <HeadContent hides={true}>CARGO</HeadContent>
+        <HeadContent hides={true}>DATA DE ADMISSÃO</HeadContent>
+        <HeadContent hides={true}>TELEFONE</HeadContent>
+        <HeadDiv hides={true} />
+      </TableHead>
+    </thead>
   );
 };
 
 export default TableHeader;
 
-const TableHead = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+const TableHead = styled.tr`
   background-image: linear-gradient(#5a84c0, #594ed2);
   color: white;
   font-size: 16px;
   font-weight: 500;
-  border-radius: 8px 8px 0 0;
+
+  justify-content: space-between;
   height: 49px;
+`;
+
+const HeadContent = styled.th<{ hides?: boolean }>`
+  padding: 16px;
+  text-align: start;
+  @media (max-width: 768px) {
+    display: ${(props) => (props.hides ? "none" : "")};
+  }
+`;
+
+const HeadDiv = styled.div<{ hides?: boolean }>`
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  display: ${(props) => (props.hides ? "none" : "")};
+  @media (max-width: 768px) {
+    display: ${(props) => (props.hides ? "" : "none")};
+  }
 `;

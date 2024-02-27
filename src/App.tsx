@@ -33,8 +33,9 @@ const App = () => {
     <>
       <Navbar />
       <Search filter={filter} setFilter={setFilter} />
+
       <Suspense fallback={<p>Carregando...</p>}>
-        {data && <EmployeeTable employeeData={filteredData} />}
+        {data.length > 0 && <EmployeeTable employeeData={filteredData} />}
       </Suspense>
     </>
   );

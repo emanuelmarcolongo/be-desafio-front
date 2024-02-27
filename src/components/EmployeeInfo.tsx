@@ -1,6 +1,7 @@
 import { Employee } from "../@types/Employee";
 import dateFormater from "../utils/dateFormatter";
 import phoneNumberFormatter from "../utils/phoneFormatter";
+import arrow from "../../public/icons/arrowDown.svg";
 import styled from "styled-components";
 
 type EmployeeInfoProps = {
@@ -13,31 +14,54 @@ const EmployeeInfo = ({ employee }: EmployeeInfoProps) => {
   const formattedPhone = phoneNumberFormatter(phone);
   return (
     <EmployeeContainer>
-      <img
-        src={image}
-        style={{ width: "34px", height: "34px", borderRadius: "50%" }}
-      />
-      <p>{name}</p>
-      <p>{job}</p>
-      <p>{formattedDate}</p>
-      <p>{formattedPhone}</p>
+      <ImageContainer>
+        <img
+          src={image}
+          style={{
+            width: "34px",
+            height: "34px",
+            borderRadius: "50%",
+          }}
+        />
+      </ImageContainer>
+
+      <EmployeeInfoParagraph>{name}</EmployeeInfoParagraph>
+      <EmployeeInfoParagraph hides={true}>{job}</EmployeeInfoParagraph>
+      <EmployeeInfoParagraph hides={true}>
+        {formattedDate}
+      </EmployeeInfoParagraph>
+      <EmployeeInfoParagraph hides={true}>
+        {formattedPhone}
+      </EmployeeInfoParagraph>
     </EmployeeContainer>
   );
 };
 
 export default EmployeeInfo;
 
-const EmployeeContainer = styled.div`
+const EmployeeContainer = styled.tr<{ hides?: boolean }>`
   height: 49px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   border: 1px solid #00000033;
-
-  p {
-    justify-self: flex-end;
+  td {
+    padding-left: 4px;
+    text-align: left;
     color: #1c1c1c;
     font-size: 16px;
     font-weight: 400;
+    padding: 16px;
+  }
+`;
+
+const ImageContainer = styled.div`
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const EmployeeInfoParagraph = styled.td<{ hides?: boolean }>`
+  text-align: left;
+  @media (max-width: 768px) {
+    display: ${(props) => (props.hides ? "none" : "")};
   }
 `;
