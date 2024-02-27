@@ -10,7 +10,9 @@ const TableHeader = () => {
         <HeadContent hides={true}>CARGO</HeadContent>
         <HeadContent hides={true}>DATA DE ADMISSÃO</HeadContent>
         <HeadContent hides={true}>TELEFONE</HeadContent>
-        <HeadDiv hides={true} />
+        <HeadContentInverse hides={true}>
+          <WhiteBall />
+        </HeadContentInverse>
       </TableHead>
     </thead>
   );
@@ -36,13 +38,18 @@ const HeadContent = styled.th<{ hides?: boolean }>`
   }
 `;
 
-const HeadDiv = styled.div<{ hides?: boolean }>`
+const HeadContentInverse = styled.th<{ hides?: boolean }>`
+  padding: 16px;
+  text-align: start;
+  @media (min-width: 768px) {
+    display: ${(props) => (props.hides ? "none" : "")};
+  }
+`;
+
+const WhiteBall = styled.div<{ hides?: boolean }>`
   width: 10px;
   height: 10px;
+  margin-left: 10px;
   background-color: white;
   border-radius: 50%;
-  display: ${(props) => (props.hides ? "none" : "")};
-  @media (max-width: 768px) {
-    display: ${(props) => (props.hides ? "" : "none")};
-  }
 `;
