@@ -23,4 +23,5 @@ const TableHead = styled.div`
   font-size: 16px;
   font-weight: 500;
   border-radius: 8px 8px 0 0;
+  height: 49px;
 `;

@@ -28,11 +28,16 @@ const EmployeeInfo = ({ employee }: EmployeeInfoProps) => {
 export default EmployeeInfo;
 
 const EmployeeContainer = styled.div`
+  height: 49px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   border: 1px solid #00000033;
+
   p {
-    align-self: flex-start;
+    justify-self: flex-end;
+    color: #1c1c1c;
+    font-size: 16px;
+    font-weight: 400;
   }
 `;

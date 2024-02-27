@@ -28,7 +28,7 @@ const Container = styled.div`
 `;
 
 const TableContainer = styled.div`
-  max-width: 911px;
+  max-width: 961px;
   margin: 0 auto;
   background-color: white;
 `;
